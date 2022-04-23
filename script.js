@@ -300,6 +300,24 @@ const checkSumSquares = (n)=>{ // returning the square of the number
 // 4 => 16 => 37 => 58 => 89=> 145=> 42=> 20 => 4
 
 const majorityElement = (nums)=>{
-    console.log(nums);
+    const threshold = Math.floor(nums.length / 2);
+    let numObject = {};
+    let finalOutput;
+    // incase there is only one element in an array... edge case
+    if(nums.length === 1){
+        return finalOutput = nums[0];
+    }
+    for(let i = 0; i < nums.length; i++){
+        if(numObject[nums[i]] !== undefined){
+            numObject[nums[i]]++;
+            // checking whether the object value is greater than the threshold or not
+            if(numObject[nums[i]] > threshold){
+                return finalOutput = nums[i];
+            }
+        }else{
+            numObject[nums[i]] = 1;
+        }
+    }
+    return finalOutput;
 }
-console.log(majorityElement([2,2,1,1,1,2,2]))
+//console.log(majorityElement([1]));
