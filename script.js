@@ -321,3 +321,38 @@ const majorityElement = (nums)=>{
     return finalOutput;
 }
 //console.log(majorityElement([1]));
+
+const removeElement = (nums, val)=>{
+    return nums.filter((singleNumber)=> singleNumber !== val);
+}
+//console.log(removeElement([3,2,2,3], 3))
+
+const findTheDifference = (s, t)=>{
+    const sArray = s.split('');
+    const tArray = t.split('');
+    let sHash = {};
+
+    // populating the sHash with with the positions
+    for(let i = 0; i < sArray.length; i++){
+        if(sHash[sArray[i]] !== undefined){
+            sHash[sArray[i]]++;
+        }else{
+            sHash[sArray[i]] = 1;
+        }
+    }
+    console.log(sHash['a']);
+    for(let l = 0; l < tArray.length; l++){
+        console.log(sHash);
+        if(!sHash[tArray[l]]){
+            return tArray[l];
+        }else{
+             sHash[tArray[l]]--;
+        }
+    }
+    // s: !a of t => a - 1, a; 0,
+    // s: !e of t=>  e - 1, e: 0
+    // s2: !a
+  
+}
+
+console.log(findTheDifference('aba', 'abab'));
