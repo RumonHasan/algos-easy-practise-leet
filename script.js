@@ -355,4 +355,35 @@ const findTheDifference = (s, t)=>{
   
 }
 
-console.log(findTheDifference('aba', 'abab'));
+//console.log(findTheDifference('aba', 'abab'));
+
+const wordPattern = (pattern, s)=>{
+    let stringArray = s.split(' ');
+
+    let stringHash = {};
+
+    // edge case important because the the second string should be an array of words
+    if(stringArray.length !== pattern.length){
+        return false;
+    }
+    
+    for(let i = 0; i < stringArray.length; i++){
+        if(stringHash[pattern[i]]){
+            if(stringHash[pattern[i]] !== stringArray[i]){
+                return false;
+            }
+        }else{
+            if(Object.values(stringHash).indexOf(stringArray[i]) !== -1){
+                return false;
+            }else{
+                stringHash[pattern[i]] = stringArray[i];
+            }
+            
+        }
+        
+    }
+    
+    return true;
+}
+
+console.log(wordPattern("abba", "dog cat dog cat"));
