@@ -386,4 +386,20 @@ const wordPattern = (pattern, s)=>{
     return true;
 }
 
-console.log(wordPattern("abba", "dog cat dog cat"));
+//console.log(wordPattern("abba", "dog cat dog cat"));
+
+const matchingElements = (array1, array2)=>{
+    let hash = {};
+    for(let i = 0; i < array1.length; i++){
+        hash[array1[i]] = true;
+    }
+    console.log(hash);
+    for(let j = 0; j < array2.length; j++){
+        if(hash[array2[j]]){
+            return array2[j];
+        }
+    }
+    return false;
+}
+
+//console.log(matchingElements([1,2,3,4], [5,6,7,8]));
