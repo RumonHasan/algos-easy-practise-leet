@@ -403,3 +403,63 @@ const matchingElements = (array1, array2)=>{
 }
 
 //console.log(matchingElements([1,2,3,4], [5,6,7,8]));
+
+const powerOfTwo = (n)=>{   
+    if(n === 0) return false;
+   if( n === 1) return true;
+   if(n % 2 !== 0){
+       return false;
+   }
+   return powerOfTwo(n / 2);
+}
+
+//console.log(powerOfTwo(14));
+
+// find restaurant problem
+// initial approach;
+// var findRestaurant = function(list1, list2) {
+//     let restaurantHash = {};
+//     let collection = [];
+//     let leastIndexOutput = {};
+//     let minIndex = 0;
+//     let finalResult = [];
+//     // populating first list
+//     for(let i = 0; i < list1.length; i++){
+//         restaurantHash[list1[i]] = i;
+//     }
+//     for(let i = 0; i < list2.length; i++){
+//         if(restaurantHash[list2[i]] !== undefined){ // in order to get access to the first element
+//             let totalIndex = restaurantHash[list2[i]] + i;
+//             collection.push({key: list2[i], index: totalIndex});
+//         }
+//     }
+//     minIndex = Math.min(...collection.map(item=> item.index));
+//     leastIndexOutput = collection.filter((item)=> item.index === minIndex);
+//     finalResult.push(leastIndexOutput[0].key);
+
+//     return finalResult;
+// };
+
+// concise version
+const findRestaurant = (list1, list2) => {
+    let restaurantHash = {};
+    let collection = [];
+    let minIndex = Infinity;
+    // populating first list
+    for(let i = 0; i < list1.length; i++){
+        restaurantHash[list1[i]] = i;
+    }
+    for(let i = 0; i < list2.length; i++){
+        if(restaurantHash[list2[i]] !== undefined){ // in order to get access to the first element
+            let totalIndex = restaurantHash[list2[i]] + i;
+            collection.push({key: list2[i], index: totalIndex});
+            minIndex = Math.min(minIndex, totalIndex);
+        }
+    }
+
+    return collection.filter(item => item.index === minIndex).map(item=> item.key);
+}
+// finding the least index sum and common
+
+console.log(findRestaurant(["Shogun","Tapioca Express","Burger King","KFC"],
+["KFC","Shogun","Burger King"]))
