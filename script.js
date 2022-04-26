@@ -461,5 +461,48 @@ const findRestaurant = (list1, list2) => {
 }
 // finding the least index sum and common
 
-console.log(findRestaurant(["Shogun","Tapioca Express","Burger King","KFC"],
-["KFC","Shogun","Burger King"]))
+//console.log(findRestaurant(["Shogun","Tapioca Express","Burger King","KFC"],
+//["KFC","Shogun","Burger King"]))
+
+const numJewelsInStones = (jewels, stones)=>{
+   let jewelHash = {};
+   let counter = 0;
+   for(let i = 0; i < jewels.length; i++){
+       jewelHash[jewels[i]] = jewels[i];
+   }
+   console.log(jewelHash);
+   for(let j = 0; j < stones.length; j++){
+        if(jewelHash[stones[j]] !== undefined){
+            counter = counter + 1;
+        }
+   }
+   return counter;
+}
+
+//console.log(numJewelsInStones("aA","aAAbbbb"))
+
+const isAnagram = (s, t)=>{
+    let hash = {};
+    // incase the length dont match
+    if(s.length !== t.length){
+        return false;
+    }
+    for(let i = 0; i < s.length; i++){
+        if(hash[s[i]] !== undefined){
+            hash[s[i]]++;
+        }else{
+            hash[s[i]] = 1;
+        }
+    }
+    console.log(hash);
+    for(let j = 0; j < t.length; j++){
+        if(!hash[t[j]] || hash[t[j]] < 0){
+            return false;
+        }else{
+            hash[t[j]]--;
+        }
+    }
+    return true;
+}
+
+console.log(isAnagram("anagram", "nagaram"))
