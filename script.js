@@ -557,3 +557,9 @@ const isPalindrome = (string)=>{
 }
 
 //console.log(isPalindrome('boob'))
+
+// find the shortest subarray
+const findShortestSubarray = (nums)=>{
+    
+}
+console.log(findShortestSubarray([1,2,2,3,1]))
