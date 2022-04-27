@@ -524,3 +524,36 @@ const findDisappearedNumbers = (nums)=>{
 }
 //console.log(findDisappearedNumbers([1,1]))
 
+
+// repeated substring problem
+const repeatedSubstringPattern = (s)=>{
+    if(s.length === 1){ // if the length is one there can be no substring
+        return false;
+    }
+    let stringTemp = ''; // empty substring to check whether it equals the main one or not
+    for(let i = 0; i < s.length /2; i++){
+        while(stringTemp.length < s.length){
+            stringTemp = stringTemp + s.substring(0, i + 1);
+        }
+        // first case returns aaaa
+        if(stringTemp === s){
+            return true;
+        }else{
+            stringTemp = '';
+        }
+    }
+    return (stringTemp === s) ? true: false;
+}
+//console.log(repeatedSubstringPattern('abcabc'))
+
+// is palindrom
+const isPalindrome = (string)=>{
+    for(let i = 0; i < string.length / 2; i++ ){
+        if(string[i] !== string[string.length - i - 1]){
+            return false;
+        }
+    }
+    return true;
+}
+
+//console.log(isPalindrome('boob'))
