@@ -494,15 +494,33 @@ const isAnagram = (s, t)=>{
             hash[s[i]] = 1;
         }
     }
-    console.log(hash);
     for(let j = 0; j < t.length; j++){
         if(!hash[t[j]] || hash[t[j]] < 0){
             return false;
         }else{
             hash[t[j]]--;
+            console.log(hash);
         }
     }
     return true;
 }
 
-console.log(isAnagram("anagram", "nagaram"))
+//console.log(isAnagram("anagram", "nagraam"));
+
+// finding the dissapeaared elements
+
+const findDisappearedNumbers = (nums)=>{
+    let numHash = new Set();
+    let missingCollection = [];
+    for(let i = 0; i < nums.length; i++){
+        numHash.add(nums[i]); // adding to the set as it filters out copied elements
+    }
+    for(let j = 1; j <= nums.length; j++){
+       if(!numHash.has(j)){
+           missingCollection.push(j);
+       }
+    }
+    return missingCollection;
+}
+//console.log(findDisappearedNumbers([1,1]))
+
