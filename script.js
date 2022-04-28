@@ -578,4 +578,25 @@ const addTheNumbers = (n)=>{
         return parseFloat(sum) + parseFloat(num) 
     },0)
 }
-console.log(addDigits(199))
+//console.log(addDigits(199))
+
+const canPlaceFlowers = (flowerbed, n) => {
+    let possibleFlower = 0;
+    for(let i = 0; i < flowerbed.length; i++){
+        // checking adjacent conditions in order to check whether there is a plant or not
+            if(possibleFlower < n){
+                if(flowerbed[i] === 0){
+                    const nextEl = i === flowerbed.length - 1 ? 0 : flowerbed[i + 1];
+                    const prevEl = i === 0 ? 0 : flowerbed[i - 1];
+                   
+                    if(prevEl === 0 && nextEl === 0){
+                        flowerbed[i] = 1;
+                        possibleFlower++;
+                    }
+                   
+                }
+            }
+    }
+    return possibleFlower === n ? true: false;
+}
+//console.log(canPlaceFlowers([1,0,0,0,0,1], 2));
