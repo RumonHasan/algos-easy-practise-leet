@@ -600,3 +600,43 @@ const canPlaceFlowers = (flowerbed, n) => {
     return possibleFlower === n ? true: false;
 }
 //console.log(canPlaceFlowers([1,0,0,0,0,1], 2));
+
+
+const intersection = (nums1, nums2)=>{
+    let arrayHash = {};
+    let intersectionCollection = new Set();
+    for(let i = 0; i < nums1.length; i++){
+        arrayHash[nums1[i]] = true;
+    }
+    for(let i = 0; i < nums2.length; i++){
+        if(arrayHash[nums2[i]]){
+            intersectionCollection.add(nums2[i]);
+        }
+    }
+    return Array.from(intersectionCollection);
+}
+
+//console.log(intersection([4,9,5], [9,4,9,8,4]));
+
+const moveZeroes = (nums)=>{
+    let tempNonZeroIndex = 0;
+    for(let i = 0; i < nums.length; i++){
+        if(nums[i] !== 0){
+          nums[tempNonZeroIndex] = nums[i];
+          tempNonZeroIndex++;
+        }
+    }
+    // refill the ending indexes starting from the remaining non zero indexes
+    for(let i = tempNonZeroIndex; i< nums.length; i++){
+        nums[i] = 0;
+    }
+    return nums;
+}
+// i = 0, nums[0] !== 0 false;
+// i = 1, nums[1] !== 0 true; nums[0] = nums[1] = 1 , tempIndex = 1;
+// i = 2, nums[2] !== 0 false;
+// i = 3, nums[3] === 3, true; nums[1] = nums[3] = 3,, tempIndex = 2;
+// i = 4, nums[4] !== 0 true, nums[4] = ; nums[2] = nums[4] = 12;
+
+
+//console.log(moveZeroes([0,1,0,3,12]))
