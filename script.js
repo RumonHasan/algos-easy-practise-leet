@@ -562,4 +562,20 @@ const isPalindrome = (string)=>{
 const findShortestSubarray = (nums)=>{
     
 }
-console.log(findShortestSubarray([1,2,2,3,1]))
+//console.log(findShortestSubarray([1,2,2,3,1]))
+
+// add digits
+const addDigits = (num)=>{
+    let n = addTheNumbers(num);
+    if(n < 10){
+        return n;
+    }
+    return addDigits(n);
+}
+// recursive add 
+const addTheNumbers = (n)=>{
+    return n.toString().split('').reduce((sum, num)=>{
+        return parseFloat(sum) + parseFloat(num) 
+    },0)
+}
+console.log(addDigits(199))
