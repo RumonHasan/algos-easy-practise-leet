@@ -689,4 +689,24 @@ const duplicateZeroes = (arr)=>{
    }
    return arr;
 }
+
+
 //console.log(duplicateZeroes([1,0,2,3,0,4,5,0]))
+const shuffleString = (s, indices)=>{
+    if(s.length !== indices.length){
+        return;
+    }
+    let wordObjArray = [];
+    let returnString =  '';
+    let tempIndex = 0;
+    for(let i = 0; i < s.length; i++){
+        wordObjArray.push({ letter: s[i],index:indices[tempIndex]});
+        tempIndex++;
+    }
+    let sortedObject = wordObjArray.sort((a,b)=> a.index - b.index);
+    sortedObject.map((item)=> returnString += item.letter);
+    return returnString;
+}
+
+console.log(shuffleString("codeleet", [4,5,6,7,0,2,1,3]))
+
