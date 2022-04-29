@@ -639,4 +639,37 @@ const moveZeroes = (nums)=>{
 // i = 4, nums[4] !== 0 true, nums[4] = ; nums[2] = nums[4] = 12;
 
 
-//console.log(moveZeroes([0,1,0,3,12]))
+//console.log(moveZeroes([0,1,0,3,12]));
+
+const removeElementArray = (nums, val)=>{
+    let newArray = [];
+    for(let i = 0; i < nums.length; i++){
+        if(nums[i] !== val){
+            newArray.push(nums[i]);
+        }
+    }
+    return newArray.length;
+}
+//console.log(removeElementArray([3,2,2,3],3))
+
+const intersectII = (nums1, nums2)=>{
+    // need to return all the same number of elements 
+    let numHash = {};
+    let numArray = [];
+    for(let i = 0; i < nums1.length; i++){
+        if(numHash[nums1[i]] !== undefined){
+            numHash[nums1[i]]++;
+        }else{
+            numHash[nums1[i]] = 1;
+        }
+    }
+    for(let i = 0; i < nums2.length; i++){
+        if(numHash[nums2[i]]){
+            numArray.push(nums2[i]);
+            numHash[nums2[i]]--;
+        }
+    }
+    return numArray;
+}
+
+console.log(intersectII([4,9,5], [9,4,9,8,4]))
