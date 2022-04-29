@@ -672,4 +672,21 @@ const intersectII = (nums1, nums2)=>{
     return numArray;
 }
 
-console.log(intersectII([4,9,5], [9,4,9,8,4]))
+//console.log(intersectII([4,9,5], [9,4,9,8,4]))
+
+const duplicateZeroes = (arr)=>{
+    let zeroCounter = 0;
+    for(let i = 0; i < arr.length; i++){
+        // igrnoring the last element
+        if(arr[i] === 0 && i !== arr.length - 1){
+           arr.splice(i, 0, 0);
+           i++; // in order to move the counter to the next element
+           zeroCounter++;
+        }
+    }
+   for( let j = 0; j < zeroCounter; j++){
+       arr.pop();
+   }
+   return arr;
+}
+//console.log(duplicateZeroes([1,0,2,3,0,4,5,0]))
