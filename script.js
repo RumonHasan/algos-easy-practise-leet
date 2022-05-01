@@ -742,5 +742,43 @@ const twoOutOfThree = (nums1, nums2, nums3)=>{
     return Array.from(valueSet);
 }
 
-//console.log(twoOutOfThree([1,1,3,2], [2,3], [3]))
+//console.log(twoOutOfThree([1,1,3,2], [2,3], [3]));
+
+
+const maxWordsFound = (sentences) =>{
+    let maxLen = 0;
+    for(let i = 0; i < sentences.length; i ++){
+       maxLen = Math.max(maxLen, sentences[i].split(' ').length);
+    }
+    return maxLen;
+}
+
+//console.log(maxWordsFound(["alice and bob love leetcode","i think so too","this is great thanks very much"]));
+
+const divideArray = (nums)=>{
+    if(nums.length % 2 !== 0){
+        return false;
+    };
+    let numHash = {}
+
+    for(let i = 0; i < nums.length; i++){
+        if(numHash[nums[i]] !== undefined){
+            numHash[nums[i]]++;
+        }else{
+            numHash[nums[i]] = 1;
+        }
+    }
+    for(const [key, value] of Object.entries(numHash)){
+        if(value % 2 !== 0){
+            return false;
+        }
+    }
+    return true;
+};
+
+//console.log(divideArray([18,19,5,5,18,19,5,6,12,19,13,4,16,11,4,16,10,8,12,8,2,1,8,17,4,18,3,5,16,2,16,12,17,16,7,16,2,17,19,9,1,20,17,17,4,6]));
+
+
+
+
 
