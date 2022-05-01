@@ -778,6 +778,20 @@ const divideArray = (nums)=>{
 
 //console.log(divideArray([18,19,5,5,18,19,5,6,12,19,13,4,16,11,4,16,10,8,12,8,2,1,8,17,4,18,3,5,16,2,16,12,17,16,7,16,2,17,19,9,1,20,17,17,4,6]));
 
+const intersectionArray = (nums)=>{
+    let collection = [];
+    // es6 approach using every function
+    for(let i = 0; i < nums[0].length; i++){
+        // uses every to check whether all the series have the elements or not
+        if(nums.every((singleSeries)=> singleSeries.includes(nums[0][i]))){
+            collection.push(nums[0][i]);
+        }
+    }
+    return collection.sort((a, b)=> a - b);
+}
+
+//console.log(intersectionArray([[3,1,2,4,5],[1,2,3,4],[3,4,5,6]]))
+
 
 
 
