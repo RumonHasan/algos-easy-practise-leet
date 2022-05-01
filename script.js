@@ -708,5 +708,39 @@ const shuffleString = (s, indices)=>{
     return returnString;
 }
 
-console.log(shuffleString("codeleet", [4,5,6,7,0,2,1,3]))
+//console.log(shuffleString("codeleet", [4,5,6,7,0,2,1,3]));
+
+// two out of three easy problem... done using sets
+const twoOutOfThree = (nums1, nums2, nums3)=>{
+    let valueSet = new Set();
+    // array sets
+    const set1 = new Set(nums1);
+    const set2 = new Set(nums2);
+    const set3 = new Set(nums3);
+   
+    // set approach
+    const combinationSet = [...new Set([...nums1, ...nums2, ...nums3])];
+    const mainSet = new Set(combinationSet);
+    console.log(mainSet);
+
+    for(const value of mainSet.values()){
+        let counter = 0; // counter to check how many have a value
+        if(set1.has(value)){
+            counter++;
+        }
+        if(set2.has(value)){
+            counter++;
+        }
+        if(set3.has(value)){
+            counter++;
+        }
+       
+        if(counter >= 2){
+            valueSet.add(value);
+        }
+    }
+    return Array.from(valueSet);
+}
+
+//console.log(twoOutOfThree([1,1,3,2], [2,3], [3]))
 
