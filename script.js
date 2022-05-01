@@ -792,6 +792,18 @@ const intersectionArray = (nums)=>{
 
 //console.log(intersectionArray([[3,1,2,4,5],[1,2,3,4],[3,4,5,6]]))
 
+const arrayPairSum = (nums) =>{
+    let maxSum =0;
+    nums = nums.sort((a, b)=> a - b);
+    console.log(nums);
+
+    for(let i = 0; i < nums.length; i+=2){
+        maxSum += nums[i];
+    }
+    return maxSum;
+}
+console.log(arrayPairSum([6,2,6,5,1,2]))
+
 
 
 
