@@ -802,7 +802,45 @@ const arrayPairSum = (nums) =>{
     }
     return maxSum;
 }
-console.log(arrayPairSum([6,2,6,5,1,2]))
+//console.log(arrayPairSum([6,2,6,5,1,2]));
+
+const climbStairs = (n)=>{
+
+}
+//console.log(climbStairs(3));
+
+const longestContinuousIncreasingSub = (nums)=>{    
+    let maxLen = 0;
+    let currentLen = 0;
+    for(let i = 0; i < nums.length; i++){
+        if((i === 0) || (nums[i] > nums[i - 1])){
+            currentLen = currentLen + 1;
+        }else{
+            // if its not bigger then returns currentLength = 1;
+            currentLen = 1;
+        }
+        maxLen = Math.max(maxLen, currentLen);
+    }
+    return maxLen;
+}
+
+//console.log(longestContinuousIncreasingSub([1,3,5,4,7]))
+
+const commonChars = (words)=>{
+    let collection = [];
+    const firstWord = words[0];
+    for(let char of firstWord){
+        if(words.every(singleWord=> singleWord.includes(char))){
+            // removing the letters after adding them
+            collection.push(char);
+            words = words.map(item=> item.replace(char, ''));
+        }
+    }
+    // checking the occurences instead;
+    return collection;
+}
+console.log(commonChars(["bella","label","roller"]));
+
 
 
 
