@@ -839,7 +839,34 @@ const commonChars = (words)=>{
     // checking the occurences instead;
     return collection;
 }
-console.log(commonChars(["bella","label","roller"]));
+//console.log(commonChars(["bella","label","roller"]));
+
+const canThreePartsEqualSum = (arr)=>{
+    // sum needs to be divisble by three in order to be equal
+    let partitionCount = 0;
+    let sum = 0;
+    let partitionSum;
+    for(let i = 0; i < arr.length; i++){
+        sum += arr[i];
+    }
+    // if the sum is not equal to three then it cannot show the possible three section
+     if(sum % 3 !== 0){
+            return false;
+     }
+    // checking the three partitions
+    partitionSum = sum / 3; let secondarySum = 0;
+    for(let i = 0; i < arr.length; i++){
+        // have to check whether the partitions equal the sum or not
+        secondarySum += arr[i];
+        if(secondarySum === partitionSum){
+            partitionCount++;
+            secondarySum = 0;
+        }
+    }
+    return partitionCount >= 3; // bigger than 3 only in the case of all 0s in the array
+    
+}
+//console.log(canThreePartsEqualSum([0,0,0,0]));
 
 
 
