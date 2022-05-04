@@ -888,8 +888,29 @@ const rotate = (nums, k)=>{
     }
    return nums;
 }
-console.log(rotate([1,2,3,4,5,6,7], 3))
+//console.log(rotate([1,2,3,4,5,6,7], 3))
 
+const findDifference = (nums1, nums2)=>{
+    let array1 = [];
+    let array2 = [];
+    const set1 = new Set(nums1);
+    const set2 = new Set(nums2);
+    // set1 
+    for(let item of set1){
+        if(!set2.has(item)){
+            array1.push(item);
+        }
+    }
+    // set2
+    for(let item of set2){
+        if(!set1.has(item)){
+            array2.push(item);
+        }
+    }
+    return [array1, array2];
+
+}
+//console.log(findDifference([1,2,3,3], [1,1,2,2]))
 
 
 
