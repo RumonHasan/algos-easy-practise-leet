@@ -868,6 +868,27 @@ const canThreePartsEqualSum = (arr)=>{
 }
 //console.log(canThreePartsEqualSum([0,0,0,0]));
 
+const nextGreatestLetter = (letters, target)=>{
+    let ans = letters[0];
+    for(let i = 0 ; i < letters.length; i++){
+        if(letters[i] > target){
+            ans = letters[i];
+            break;
+        }
+    }
+    return ans;
+}
+
+//console.log(nextGreatestLetter(["c","f","j"], 'a'));
+
+const rotate = (nums, k)=>{
+    // removing the last k elements
+    for(let i = 0; i < k; i++){
+        nums.unshift(nums.pop());
+    }
+   return nums;
+}
+console.log(rotate([1,2,3,4,5,6,7], 3))
 
 
 
