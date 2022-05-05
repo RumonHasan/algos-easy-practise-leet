@@ -938,9 +938,29 @@ const isSequence = (s, t)=>{
 // b !== h , i = 1, j = 2,
 // b === b, i = 2, j = 3,
 // c !== g, .. just needs to check the first two element
-console.log(isSequence('agbc',"ahbgdc" ))
+//console.log(isSequence('agbc',"ahbgdc" ));
 
 
+// length of longest substring
+const lengthOfLongestSubstring = (s)=>{
+    let currentString = [];
+    const array = s.split('');
+    let longestLength = 0;
+    for(let i = 0; i < array.length; i++){
+        // time to check whether the string is present or not
+        const currentIndex = currentString.indexOf(array[i]);
+        if(currentIndex !== -1){
+            currentString.splice(0,currentIndex + 1);
+        }
+        currentString.push(array[i]);
+        longestLength = Math.max(longestLength, currentString.length);
+    }
+    return longestLength;
+    
+}
+// i = 1,
+
+console.log(lengthOfLongestSubstring('abcabcbb'));
 
 
 
