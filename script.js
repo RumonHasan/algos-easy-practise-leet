@@ -910,7 +910,37 @@ const findDifference = (nums1, nums2)=>{
     return [array1, array2];
 
 }
-//console.log(findDifference([1,2,3,3], [1,1,2,2]))
+//console.log(findDifference([1,2,3,3], [1,1,2,2]));
+
+// leetcode 392
+const isSequence = (s, t)=>{
+    let i = 0;
+    let j = 0;
+    while(i < s.length){
+        // if the second index j reaches the end before finding the previous one then its false
+        if(j === t.length){
+            return false;
+        }
+        if(s[i] === t[j]){
+            i++;
+            console.log(s[i]);
+        }
+        console.log(j);
+        j++;
+    }
+    return true;
+}
+// i = 0, j = 0, h !== a => j = 1
+// i = 0, j = 1, h === h => i = 1, j = 2
+// a !== b , i = 1, j = 3,
+
+// a == a , i = 1, j = 1,
+// b !== h , i = 1, j = 2,
+// b === b, i = 2, j = 3,
+// c !== g, .. just needs to check the first two element
+console.log(isSequence('agbc',"ahbgdc" ))
+
+
 
 
 
